@@ -63,10 +63,7 @@ Vagrant.configure("2") do |config|
 #{sHOME}/install_haproxy.sh ;
 # // allow for SSHD on all interfaces
 sed -i "s/#ListenAddress/ListenAddress/g" /etc/ssh/sshd_config ;
-
 SCRIPT
-# "bash -c '#{sHOME}/install_tls_ca_certs.sh #{iCLUSTERA_N} && #{sHOME}/install_haproxy.sh'"
-#		haproxy_node.vm.provision "shell", inline: 'sed -i "s/#ListenAddress/ListenAddress/g" /etc/ssh/sshd_config'
       end
 
 
