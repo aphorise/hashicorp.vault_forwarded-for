@@ -385,14 +385,13 @@ listener "tcp" {
 '${VAULT_CONF_TLS_CERT_FILE}'
 '${VAULT_CONF_TLS_KEY_FILE}'
 '${VAULT_CONF_TLS_DISABLED}'
+	# // Load-Balancers / Proxy - Forwarded-For headers.
+	x_forwarded_for_authorized_addrs = "192.168.178.199/32"
+	#x_forwarded_for_reject_not_authorized = "true"  # default
+	#x_forwarded_for_reject_not_present = "true"  # default
 }
 '"${VAULT_CONF_STORE}"'
 '"$(iX=0 ; while (( ${#VAULT_CONF_SEAL[@]} > iX )); do printf "${VAULT_CONF_SEAL[iX++]}\n" ; done )"'
-
-# // Load-Balancers / Proxy - Forwarded-For headers.
-x_forwarded_for_authorized_addrs = "192.168.178.199/32"
-#x_forwarded_for_reject_not_authorized = "true"  # default
-#x_forwarded_for_reject_not_present = "true"  # default
 
 disable_mlock = true
 log_level = "trace"

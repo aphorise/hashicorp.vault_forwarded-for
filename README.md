@@ -45,7 +45,9 @@ vagrant up ;
 ```
 
 
-### 1. **Bug / Issue** - X-Forwarded-For is neglected & has no effect
+### ~~1. **Bug / Issue** - X-Forwarded-For is neglected & has no effect~~
+
+Works as expected where [`x_forwarded_for_reject_not_authorized` and `x_forwarded_for_reject_not_present`](https://www.vaultproject.io/docs/configuration/listener/tcp#x_forwarded_for_reject_not_authorized) are set as part of the listener stanza.
 
 ```bash
 vagrant ssh haproxy ;
@@ -60,9 +62,9 @@ cat vault_init.json
 
 # // ON LOCAL-MACHINE - try VAULT STATUS
 VAULT_ADDR=http://192.168.178.176:8200 vault status ;
-  # // ^^ get a response - when we should NOT.
+  # // ^^ shoould NOT get response
 
-# // ON LOCAL-MACHINE - try LB Address via browser & also you get a response:
+# // ON LOCAL-MACHINE - try LB Address via browser & should get a response:
 http://192.168.178.199  # OPEN IN BROWSER
 ```
 
